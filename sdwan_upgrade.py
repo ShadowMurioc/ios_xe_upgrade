@@ -6,8 +6,6 @@ from queue import Queue
 
 
 ipna = ipData.ipinfo
-
-
 user = 'admin'
 pwd = 'C1sc0123'
 IMAGE_File = 'c1100-universalk9.17.06.02.SPA.bin'
@@ -66,7 +64,7 @@ def ssh_netmiko(ip, user, pwd, queue):
         time.sleep(0.5)
         print('Failed to Device', ip)
         time.sleep(0.5)
-        # limit_thread.release()
+        limit_thread.release()
     # except netmiko_exceptions as e:
     #     print('Failed to Device', ip, e)
 
