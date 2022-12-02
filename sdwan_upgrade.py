@@ -69,6 +69,7 @@ def ssh_netmiko(ip, user, pwd, queue):
     #     print('Failed to Device', ip, e)
 
 
+
 if __name__ == '__main__':
     threads = []
     while 1 == 1:
