@@ -32,9 +32,9 @@ def ssh_netmiko(ip, user, pwd):
         time1 = time.strftime("%Y-%m-%d_%H:%M:%S")
         start = time.time()
         print(ip + '  版本升级开始时间  ' + time1)
-        # print('正在下载镜像 =====> {}'.format(IMAGE_File))
-        # Transfer_Image = ssh_netconnect.send_command('copy ftp://{}:{}@{}/{} bootflash:'.format(FTP_USER, FTP_PASS, FTP_SRV, IMAGE_File), expect_string=r'.bin]?')
-        # Transfer_Image += ssh_netconnect.send_command('{}'.format(IMAGE_File), expect_string=r'#')
+        print('正在下载镜像 =====> {}'.format(IMAGE_File))
+        Transfer_Image = ssh_netconnect.send_command('copy ftp://{}:{}@{}/{} bootflash:'.format(FTP_USER, FTP_PASS, FTP_SRV, IMAGE_File), expect_string=r'.bin]?')
+        Transfer_Image += ssh_netconnect.send_command('{}'.format(IMAGE_File), expect_string=r'#')
         print(Device_SSH['ip'] + '  镜像已经下载完成，开始安装新版本文件=== {} ==='.format(IMAGE_File))
         Install_Image = ssh_netconnect.send_command('request platform software sdwan software install bootflash:{}'.format(IMAGE_File), expect_string=r'#')
         # 以下可以查看当前sdwan software的状态
